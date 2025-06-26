@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Bintang</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #001f4d, #800000);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    .page {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    .active {
+      display: flex;
+    }
+    .box {
+      width: 320px;
+      height: 320px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 15px #fff3;
+      overflow-y: auto;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      width: 200px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: crimson;
+      color: white;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .love {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear;
+      opacity: 0.8;
+    }
+    .love::before,
+    .love::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .love::before {
+      top: -10px;
+      left: 0;
+    }
+    .love::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman 1: Password -->
+  <div class="page active" id="page1">
+    <div class="box">
+      <h2>Masukkan Kata Sandi</h2>
+      <input type="password" id="password" placeholder="i love you">
+      <br>
+      <button onclick="checkPassword()">Masuk</button>
+    </div>
+  </div>
+
+  <!-- Halaman 2: Foto dari Gemma -->
+  <div class="page" id="page2">
+    <div class="box">
+      <h2>Untukmu, Bintang</h2>
+      <img src="bintang.jpg" alt="Foto dari Gemma">
+      <br><br>
+      <button onclick="nextPage()">Lanjut</button>
+    </div>
+  </div>
+
+  <!-- Halaman 3: Foto + Teks Romantis -->
+  <div class="page" id="page3">
+    <div class="box">
+      <img src="bintang.jpg" alt="Kenangan">
+      <p style="margin-top: 10px;">
+        “Sejak kamu datang, hatiku tahu apa itu pulang.”<br>
+        Terima kasih karena selalu jadi pelindung, penyemangat, dan tempat paling nyaman. 💖
+      </p>
+      <button onclick="nextPage()">Lanjut</button>
+    </div>
+  </div>
+
+  <!-- Halaman 4: Puisi Penutup -->
+  <div class="page" id="page4">
+    <div class="box">
+      <h3>PUISI UNTUK BINTANG</h3>
+      <p style="font-style: italic;">
+        Di langit malam aku menyebut namamu,<br>
+        Bintang yang jatuh tapi tak pernah redup.<br>
+        Dalam dadaku, kamu tinggal tanpa pamit,<br>
+        Dan di mataku, kamu rumah dari segala peluk.
+      </p>
+      <p>Terima kasih telah hadir. Ini akhir halaman, tapi bukan akhir rasa 🌌</p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function createLove() {
+      const love = document.createElement('div');
+      love.className = 'love';
+      love.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(love);
+      setTimeout(() => love.remove(), 6000);
+    }
+    setInterval(createLove, 3000); // setiap 3 detik keluar love
+
+    let currentPage = 1;
+    function checkPassword() {
+      const input = document.getElementById('password').value.trim().toLowerCase();
+      if (input === "i love you") {
+        nextPage();
+      } else {
+        alert("Kata sandi salah! Coba lagi yaa 🌸");
+      }
+    }
+    function nextPage() {
+      document.getElementById('page' + currentPage).classList.remove('active');
+      currentPage++;
+      const next = document.getElementById('page' + currentPage);
+      if (next) next.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
