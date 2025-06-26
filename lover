@@ -113,8 +113,8 @@
   <!-- Halaman 2: Foto dari Gemma -->
   <div class="page" id="page2">
     <div class="box">
-      <h2>Untukmu, Bintang</h2>
-      <img src="bintang.jpg" alt="Foto dari Gemma">
+      <h2> Bintang, semestaku</h2>
+      <img src="bintang2.jpg" alt="Foto dari Gemma">
       <br><br>
       <button onclick="nextPage()">Lanjut</button>
     </div>
@@ -135,7 +135,7 @@
   <!-- Halaman 4: Puisi Penutup -->
   <div class="page" id="page4">
     <div class="box">
-      <h3>PUISI UNTUK BINTANG</h3>
+      <h3>Bintang Abiyyu</h3>
       <p style="font-style: italic;">
         Di langit malam aku menyebut namamu,<br>
         Bintang yang jatuh tapi tak pernah redup.<br>
