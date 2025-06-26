@@ -122,7 +122,7 @@
   </div>
 </div>
 
-<!-- Halaman 3 (tukar posisi) -->
+<!-- Halaman 3: PESAN CINTA -->
 <div class="page" id="page3">
   <div class="box">
     <p style="font-size: 15px;">
@@ -134,7 +134,7 @@
   </div>
 </div>
 
-<!-- Halaman 4 (tukar posisi) -->
+<!-- Halaman 4: FOTO + LINK -->
 <div class="page" id="page4">
   <div class="box">
     <img src="bintang2.jpg" alt="bintang2">
